@@ -23,7 +23,6 @@ If you're already familiar with the problem, [skip to the solution](#theres-a-be
 
 Using vanilla CSS, or pre-processed CSS by means of LESS or SCSS, the traditional way of passing a _value_ to your styles on was to just use inline styles. So if we have a button component that allows a color, it would look something like this:
 
-{% raw %}
 ```jsx
 function Button({ color, children }) {
   return (
@@ -33,13 +32,11 @@ function Button({ color, children }) {
   );
 }
 ```
-{% endraw %}
 
 The problem with this approach is that it brings with it all the problems of inline styles. It now has higher specificity making it harder to override, and the styles aren't co-located with the rest of our button styles.
 
 CSS-in-JS (in the case of Styled Components or Emotion) solved this problem by allowing dynamic values like this to be directly as props
 
-{% raw %}
 ```jsx
 // We can pass the `color` value into the styled component as a prop
 function Button({ color, children }) {
@@ -57,13 +54,11 @@ const StyledButton = styled.button`
   background-color: ${props => props.color};
 `;
 ```
-{% endraw %}
 
 ### States
 
 Traditionally, we'd use css classes and concatenate strings. This always felt messy and clunky, but it works nicely on the css side, particularly if you're using a naming convention like BEM along with a pre-processors. Say we have small, medium, and large button sizes, and a primary variant, it might look something like this:
 
-{% raw %}
 ```jsx
 function Button({ color, size, primary, children }) {
   return (
@@ -78,7 +73,6 @@ function Button({ color, size, primary, children }) {
   );
 }
 ```
-{% endraw %}
 
 ```scss
 .button {
@@ -113,7 +107,6 @@ Our JSX, however, isn't faring so well. That string concatenation on the `classN
 
 Unlike dynamic values, Styled Components is still a bit cumbersome in dealing with states
 
-{% raw %}
 ```jsx
 function Button({ color, size, primary, children }) {
   return (
@@ -146,7 +139,6 @@ const StyledButton = styled.button`
   `}
 `;
 ```
-{% endraw %}
 
 It's not _terrible_, but the repeated functions to grab props gets repetitive and makes reading styles quite noisy. It can also get way worse depending on the type of state. If you have separate but mutually exclusive states sometimes it calls for a ternary expression that can end up looking even more convoluted and difficult to parse.
 
@@ -187,7 +179,6 @@ That being said, here's how I've approached styling React components with vanill
 
 A really neat trick I've found for passing values into css is using custom properties. It's pretty simple, we can just drop variables into the style property and it works.
 
-{% raw %}
 ```jsx
 function Button({ color, children }) {
   return (
@@ -197,7 +188,6 @@ function Button({ color, children }) {
   );
 }
 ```
-{% endraw %}
 
 ```css
 .button {
@@ -214,7 +204,6 @@ Now you might be thinking "isn't this just inline styles with extra steps?", and
 
 This also makes it really convenient when working with properties like transforms or clip-paths where you only need to dynamically control one piece of the value
 
-{% raw %}
 ```jsx
 function Button({ offset, children }) {
   return (
@@ -224,7 +213,6 @@ function Button({ offset, children }) {
   );
 }
 ```
-{% endraw %}
 
 ```css
 .button {
@@ -243,7 +231,6 @@ There's way more you can do with CSS custom properties, like setting defaults an
 
 The best way I've found to deal with component states and variants with vanilla CSS is using data attributes. What I like about this is that it pairs nicely with the upcoming native CSS nesting syntax. The old technique of targeting BEM modifiers with `&--modifier` doesn't work like it does in pre-processors. But with data attributes, we get similar ergonomics
 
-{% raw %}
 ```jsx
 function Button({ color, size, primary, children }) {
   return (
@@ -253,7 +240,6 @@ function Button({ color, size, primary, children }) {
   );
 }
 ```
-{% endraw %}
 
 ```css
 .button {
