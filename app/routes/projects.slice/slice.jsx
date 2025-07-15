@@ -9,6 +9,7 @@ import sliceBackgroundBarPlaceholder from '~/assets/slice-background-bar-placeho
 import sliceBackgroundBar from '~/assets/slice-background-bar.jpg';
 import sliceBackgroundPlaceholder from '~/assets/slice-background-placeholder.jpg';
 import sliceBackground from '~/assets/slice-background.png';
+import sliceBackgroundLarge from '~/assets/slice-background-bar-large.jpg';
 import sliceIrlPlaceholder from '~/assets/slice-irl-placeholder.jpg';
 import sliceIrl from '~/assets/slice-irl.jpg';
 import sliceSidebarAnnotationsPlaceholder from '~/assets/slice-sidebar-annotations-placeholder.png';
@@ -123,7 +124,7 @@ export const Slice = () => {
               </ProjectSectionText>
             </ProjectTextRow>
             <Image
-              srcSet={`${sliceSlides} 800w, ${sliceSlidesLarge} 1920w`}
+              srcSet={`${sliceSlides} 800w, ${sliceSlides} 1920w`}
               width={800}
               height={500}
               placeholder={sliceSlidesPlaceholder}
