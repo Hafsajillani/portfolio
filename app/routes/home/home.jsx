@@ -11,6 +11,8 @@ import mojitoTextureLarge from '~/assets/mojito-drink-large.png';
 import mojitoTexture from '~/assets/mojito-drink.png';
 import iphoneTextureLarge from '~/assets/iphone-clone-large.png';
 import iphoneTexture from '~/assets/iphone-clone.png';
+import personalTextureLarge from '~/assets/personal-portfolio-large.png';
+import personalTexture from '~/assets/personal-portfolio.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -199,6 +201,27 @@ export const Home = () => {
             {
               srcSet: `${iphoneTexture} 1280w, ${iphoneTextureLarge} 2560w`,
               placeholder: sliceTexturePlaceholder,
+            },
+          ],
+        }}
+      />
+      <ProjectSummary
+        id="project-4"
+        alternate
+        sectionRef={projectFour}
+        visible={visibleSections.includes(projectFour.current)}
+        index={4}
+        title="Drew: Innovative Web & Design Portfolio"
+        description="Portfolio, showcasing creative web designs, front-end expertise, and Flutter framework projects. Highlights include dynamic interfaces and product-focused solutions."
+        buttonText="Explore my work"
+        buttonLink="https://hafsajillani.github.io/Portfolio-website/"
+        model={{
+          type: 'laptop',
+          alt: 'Personal Web Portfolio',
+          textures: [
+            {
+              srcSet: `${personalTexture} 1280w, ${personalTextureLarge} 2560w`,
+              placeholder: gamestackTexturePlaceholder,
             },
           ],
         }}

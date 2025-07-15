@@ -7,6 +7,7 @@ import { Text } from '~/components/text';
 import { Transition } from '~/components/transition';
 import { Fragment, useState } from 'react';
 import styles from './profile.module.css';
+import katakana from './katakana.svg';
 
 const ProfileText = ({ visible, titleId }) => (
   <Fragment>
@@ -59,6 +60,11 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 Send me a message
               </Button>
             </div>
+            <div className={styles.image}>
+                <svg className={styles.svg} data-visible={visible} viewBox="0 0 136 766">
+                  <use href={`${katakana}#katakana-profile`} />
+                </svg>
+              </div>
           </div>
         )}
       </Transition>
